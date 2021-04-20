@@ -20,7 +20,7 @@ public class Customer
 	public String statement () {
 		double 				totalAmount 			= 0;
 		int					frequentRenterPoints 	= 0;
-		Enumeration 		rentals 				= this.rentals.elements ();
+		Enumeration<Rental>  		rentals 				= this.rentals.elements ();
 		String 				result 					= "Rental Record for " + getName () + "\n";
 		
 		while (rentals.hasMoreElements ()) {
@@ -65,5 +65,5 @@ public class Customer
 	
 
 	private String name;
-	private Vector rentals = new Vector ();
+	private Vector<Rental>  rentals = new Vector<Rental> ();
 }
