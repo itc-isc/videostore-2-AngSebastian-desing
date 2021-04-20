@@ -1,3 +1,4 @@
+package wsVideoStore;
 
 import java.util.Vector;
 import java.util.Enumeration;
@@ -19,7 +20,7 @@ public class Customer
 	public String statement () {
 		double 				totalAmount 			= 0;
 		int					frequentRenterPoints 	= 0;
-		Enumeration 		rentals 				= this.rentals.elements ();
+		Enumeration<Rental>  		rentals 				= this.rentals.elements ();
 		String 				result 					= "Rental Record for " + getName () + "\n";
 		
 		while (rentals.hasMoreElements ()) {
@@ -27,7 +28,7 @@ public class Customer
 			Rental 		each = (Rental)rentals.nextElement ();
 			
 			// determines the amount for each line
-			switch (each.getMovie ().getPriceCode ()) {
+			switch (each.getMovie().getPriceCode()) {
 				case Movie.REGULAR:
 					thisAmount += 2;
 					if (each.getDaysRented () > 2)
@@ -64,5 +65,5 @@ public class Customer
 	
 
 	private String name;
-	private Vector rentals = new Vector ();
+	private Vector<Rental>  rentals = new Vector<Rental> ();
 }
